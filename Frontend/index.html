@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Book Your Eco-Friendly Ride</title>
+  <meta name="title" content="Book Your Eco-Friendly Ride" />
+  <meta name="description" content="This is a vehicle charging template." />
+
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="stylesheet" href="./assets/font/font.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f7fa;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #007bff;
+      color: white;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+      padding: 2rem;
+    }
+
+    h2 {
+      color: #333;
+      margin-bottom: 1rem;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 0.5rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 0.75rem 1.5rem;
+      background-color: #00b894;
+      border: none;
+      color: white;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #00997a;
+    }
+
+    #stationMap {
+      border-radius: 12px;
+      margin-top: 1rem;
+    }
+
+    #stationList li {
+      padding: 0.6rem;
+      border-bottom: 1px solid #ddd;
+    }
+
+    #logoutBtn {
+      background-color: #ff5252;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
+
+    #logoutBtn:hover {
+      background-color: #e53935;
+    }
+  </style>
+</head>
+
+<body id="top">
+
+  <!-- Preloader -->
+  <div class="preload-box" data-preloader>
+    <img src="./assets/images/loading.svg" width="45" height="45" alt="loading" />
+    <img src="./assets/images/loading-circle.svg" width="75" height="75" alt="loading" class="preload-circle" />
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="container" style="display: flex; justify-content: space-between;">
+      <div id="userInfo" style="font-weight: bold;">Welcome</div>
+      <a href="history.html">📋 View Booking History</a>
+      <button id="logoutBtn" style="display: none;">Logout</button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <section id="stationSection">
+      <h2>📍 Available Charging Stations</h2>
+      <ul id="stationList"></ul>
+    </section>
+
+    <section id="bookingSection">
+      <h2>📆 Book a Charging Slot</h2>
+      <form id="bookingForm">
+        <label for="stationSelect">Select Station:</label>
+        <select id="stationSelect" required></select>
+
+        <label for="dateInput">Date:</label>
+        <input type="date" id="dateInput" required />
+
+        <label for="timeInput">Time:</label>
+        <input type="time" id="timeInput" required />
+
+        <button type="submit">Book Slot</button>
+      </form>
+    </section>
+
+    <section>
+      <h2>🗺️ Station Map</h2>
+      <div id="stationMap" style="height: 400px; width: 100%; border: 1px solid #ccc;"></div>
+    </section>
+  </main>
+
+  <!-- Scripts -->
+  <script src="./assets/js/script.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</body>
+
+</html>

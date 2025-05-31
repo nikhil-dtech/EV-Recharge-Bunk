@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f7f8;
+      padding: 2rem;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    .form-section, .list-section {
+      background: white;
+      margin: 2rem auto;
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 600px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    input, button {
+      width: 100%;
+      padding: 0.75rem;
+      margin: 0.5rem 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      padding: 1rem;
+      margin: 0.5rem 0;
+      background: #e9ecef;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    li button {
+      background-color: #dc3545;
+      width: auto;
+    }
+    li button:hover {
+      background-color: #c82333;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>⚙️ Admin Dashboard</h1>
+
+  <div class="form-section">
+    <h2>Add New Station</h2>
+    <form id="addStationForm">
+      <input type="text" id="name" placeholder="Station Name" required />
+      <input type="text" id="location" placeholder="Location" required />
+      <input type="number" step="any" id="latitude" placeholder="Latitude" required />
+      <input type="number" step="any" id="longitude" placeholder="Longitude" required />
+      <input type="number" id="slots" placeholder="Slots" required />
+      <button type="submit">Add Station</button>
+    </form>
+  </div>
+
+  <div class="list-section">
+    <h2>📋 Existing Stations</h2>
+    <ul id="stationList"></ul>
+  </div>
+
+  <script src="./assets/js/admin.js"></script>
+</body>
+</html>
