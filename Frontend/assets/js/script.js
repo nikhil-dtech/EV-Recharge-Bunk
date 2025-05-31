@@ -1,3 +1,8 @@
+const BASE_URL = window.location.hostname === "localhost"
+  ? "http://localhost:5000"
+  : "https://ev-recharge-bunk.onrender.com";
+
+
 'use strict';
 
 /**
@@ -95,7 +100,7 @@ async function loadStations() {
   const stationSelect = document.getElementById('stationSelect');
 
   try {
-    const res = await fetch('http://localhost:5000/api/bookings/stations');
+    const res = await fetch(`${BASE_URL}/api/bookings/stations`);
     const stations = await res.json();
 
     stations.forEach(station => {
@@ -121,7 +126,7 @@ async function loadMap() {
   }).addTo(map);
 
   try {
-    const res = await fetch('http://localhost:5000/api/bookings/stations');
+    const res = await fetch(`${BASE_URL}/api/bookings/stations`);
     const stations = await res.json();
 
     stations.forEach(station => {
@@ -166,7 +171,7 @@ bookingFormElement?.addEventListener('submit', async (e) => {
   const time = document.getElementById('timeInput').value;
 
   try {
-    const res = await fetch('http://localhost:5000/api/bookings/book', {
+    const res = await fetch(`${BASE_URL}/api/bookings/book`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -1,5 +1,12 @@
+const res = await fetch(`${BASE_URL}/api/auth/login`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ email, password })
+});
+
+
 async function loadStations() {
-  const res = await fetch('http://localhost:5000/api/admin/stations');
+  const res = await fetch(`${BASE_URL}/api/admin/stations`);
   const stations = await res.json();
 
   const list = document.getElementById('stationList');
@@ -16,7 +23,7 @@ async function loadStations() {
 }
 
 async function deleteStation(id) {
-  await fetch(`http://localhost:5000/api/admin/stations/${id}`, {
+  await fetch(`${BASE_URL}/api/admin/stations/${id}`, {
     method: 'DELETE'
   });
   loadStations();
@@ -32,7 +39,7 @@ document.getElementById('addStationForm').addEventListener('submit', async (e) =
     slots: parseInt(document.getElementById('slots').value)
   };
 
-  await fetch('http://localhost:5000/api/admin/stations', {
+  await fetch(`${BASE_URL}/api/admin/stations`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(station)

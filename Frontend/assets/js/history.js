@@ -1,3 +1,10 @@
+const res = await fetch(`${BASE_URL}/api/auth/login`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ email, password })
+});
+
+
 document.addEventListener('DOMContentLoaded', async () => {
   const token = localStorage.getItem('token');
   if (!token) {
@@ -10,7 +17,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const list = document.getElementById('historyList');
 
   try {
-    const res = await fetch('http://localhost:5000/api/bookings');
+    const res = await fetch(`${BASE_URL}/api/bookings`);
     const bookings = await res.json();
 
     const userBookings = bookings.filter(b => b.userId?._id === userId);
