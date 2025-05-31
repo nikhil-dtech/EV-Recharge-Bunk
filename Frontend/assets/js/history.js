@@ -1,9 +1,6 @@
-const res = await fetch(`${BASE_URL}/api/auth/login`, {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({ email, password })
-});
-
+const BASE_URL = window.location.hostname === "localhost"
+  ? "http://localhost:5000"
+  : "https://ev-recharge-bunk.onrender.com";
 
 document.addEventListener('DOMContentLoaded', async () => {
   const token = localStorage.getItem('token');
