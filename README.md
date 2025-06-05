@@ -4,7 +4,7 @@ A full-featured web application for managing and booking electric vehicle (EV) c
 
 ## 🔗 Live Demo
 
-> https://github.com/nikhil-dtech/EV-Recharge-Bunk.git
+> https://ev-recharge-bunk.onrender.com
 
 ---
 
